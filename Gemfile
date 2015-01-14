@@ -45,3 +45,7 @@ end
 
 
 gem 'rails_12factor', group: :production
+
+gem 'slim', '~> 3.0.1'
+gem 'simple_form', '~> 3.1.0'
+gem 'devise', '~> 3.4.1'
