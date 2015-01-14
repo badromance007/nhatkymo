@@ -8,11 +8,11 @@ class DiariesController < ApplicationController
   end
 
   def new
-    @diary = Diary.new
+    @diary = current_user.diaries.build
   end
 
   def create
-    @diary = Diary.new(diary_params)
+    @diary = current_user.diaries.build(diary_params)
 
     if @diary.save
       redirect_to @diary 
