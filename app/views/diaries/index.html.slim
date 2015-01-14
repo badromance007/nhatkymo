@@ -1,3 +1,5 @@
 - @diaries.each do |diary|
   h2= link_to diary.title, diary
   p= time_ago_in_words(diary.created_at)
+
+= link_to "New Diary", new_diary_path

@@ -25,9 +25,16 @@ class DiariesController < ApplicationController
   end
 
   def update
+    if @diary.update(diary_params)
+      redirect_to @diary
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @diary.destroy
+    redirect_to diaries_path
   end
 
   private

@@ -2,3 +2,6 @@ h1= @diary.title
 p= @diary.content
 
 = link_to "All diaries", diaries_path
+
+= link_to "Edit", edit_diary_path(@diary)
+= link_to "Delete", diary_path(@diary), method: :delete, data: {confirm: "Are you sure?"}
