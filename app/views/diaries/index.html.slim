@@ -1,5 +1,14 @@
-- @diaries.each do |diary|
-  h2= link_to diary.title, diary
-  p= time_ago_in_words(diary.created_at)
+.wrapper_with_padding
+  #diaries.clearfix
+    - unless @diaries.blank?
+      - @diaries.each do |diary|
+        = link_to(diary) do
+          .diary
+            p.title= diary.title
+            p.date= time_ago_in_words(diary.created_at)
+    - else
+      h2 Add a diary
+      p It appears you haven't created any diaries yet... Let's fix that. Why don't you create a new diary below.
+      button= link_to "New Diary", new_diary_path
+      
 
-= link_to "New Diary", new_diary_path
