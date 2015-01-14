@@ -1,7 +1,10 @@
-h1= @diary.title
-p= @diary.content
+.wrapper_with_padding
+  #diary_show
+    h1.title= @diary.title
+    p= simple_format(@diary.content)
 
-= link_to "All diaries", diaries_path
 
-= link_to "Edit", edit_diary_path(@diary)
-= link_to "Delete", diary_path(@diary), method: :delete, data: {confirm: "Are you sure?"}
+    .buttons
+      = link_to "All diaries", diaries_path, class: "button"
+      = link_to "Edit", edit_diary_path(@diary), class: "button"
+      = link_to "Delete", diary_path(@diary), method: :delete, data: {confirm: "Are you sure?"}, class: "button"
