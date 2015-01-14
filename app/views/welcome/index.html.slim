@@ -1,3 +1,32 @@
-h1 Welcome#index
-p Find me in app/views/welcome/index.html.erb
-p slim slim!!!
+#banner
+  .banner_content
+    h1 Nhật Ký Mở
+    p Keep track of your progress and share your ideas!
+    button= link_to "Sign Up", new_user_registration_path
+
+#testimonial
+  .wrapper
+    p.quote "Chẳng còn gì tuyệt vời hơn khi bạn có thể theo giỏi tiến bộ học ngoại ngữ của mình từng ngày và chia sẻ trải nghiệm của mình với mọi người."
+    p.name - Tường Trọng Nguyễn
+
+#callouts
+  .callout_inner
+    .wrapper
+      .callout
+        h2 Diaries
+        p Chẳng còn gì tuyệt vời hơn khi bạn có thể theo giỏi tiến bộ của mình từng ngày, học hỏi từ tiến bộ của người khác và chia sẻ trải nghiệm của mình với mọi người.
+      .callout
+        h2 Diaries
+        p Chẳng còn gì tuyệt vời hơn khi bạn có thể theo giỏi tiến bộ của mình từng ngày, học hỏi từ tiến bộ của người khác và chia sẻ trải nghiệm của mình với mọi người.
+      .callout
+        h2 Diaries
+        p Chẳng còn gì tuyệt vời hơn khi bạn có thể theo giỏi tiến bộ của mình từng ngày, học hỏi từ tiến bộ của người khác và chia sẻ trải nghiệm của mình với mọi người.
+
+#bottom_cta
+  .wrapper
+    h2 For Realz!
+    p I want you to sign up... If you don't, I will find you!
+    button= link_to "Click Meee!!!", new_user_registration_path
+
+footer
+  p &copy; 2015 by Tường Trọng Nguyễn
