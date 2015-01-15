@@ -87,6 +87,9 @@ header {
           margin-left: 0.5rem;
         }
       }
+      &:hover {
+        color: $green;
+      }
     }
     nav {
       float: right;
