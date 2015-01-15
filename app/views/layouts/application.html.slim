@@ -9,7 +9,10 @@ html
   body
     header
       .header_inner
-        = link_to image_tag('logo.svg'), root_path, id: "logo"
+        = link_to root_path, id: "logo" do
+          i.fa.fa-pencil-square-o 
+            span nhatkymo
+
         nav
           - if user_signed_in?
             = link_to "New Diary", new_diary_path
