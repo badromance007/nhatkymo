@@ -4,6 +4,10 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+
+  FACEBOOK_APP_ID     = '324191921119089'
+  FACEBOOK_APP_SECRET = '23e995985ae05db8ca500613232e417a'
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
