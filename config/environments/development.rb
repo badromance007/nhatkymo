@@ -8,6 +8,9 @@ Rails.application.configure do
   FACEBOOK_APP_ID     = '324191921119089'
   FACEBOOK_APP_SECRET = '23e995985ae05db8ca500613232e417a'
 
+  GOOGLE_APP_ID = '533789544545-d0big0to4qvl4rc420j3ob0rt5tii4fp.apps.googleusercontent.com'
+  GOOGLE_APP_SECRET = 'D4AUhpJfQVKRWCFReiyp1c6d'
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
