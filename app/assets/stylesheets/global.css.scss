@@ -102,6 +102,13 @@ header {
         &:hover {
           color: $green;
         }
+        img {
+          position: absolute;
+          bottom: 1rem;
+        }
+        span {
+          margin-left: 3.5rem;
+        }
       }
     }
   }
