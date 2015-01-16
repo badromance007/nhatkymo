@@ -7,8 +7,8 @@ Rails.application.configure do
   FACEBOOK_APP_ID     = '1538529833084665'
   FACEBOOK_APP_SECRET = '40f99708c9fefb8a527e499359aee27a'
 
-  GOOGLE_APP_ID = '533789544545-d0big0to4qvl4rc420j3ob0rt5tii4fp.apps.googleusercontent.com'
-  GOOGLE_APP_SECRET = 'D4AUhpJfQVKRWCFReiyp1c6d'
+  GOOGLE_APP_ID = '533789544545-bsns0htc1fg5e68e5nepr4v85ttd09hs.apps.googleusercontent.com'
+  GOOGLE_APP_SECRET = 'hTiU0MY2vKLgtTCq5NgNnunQ'
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
