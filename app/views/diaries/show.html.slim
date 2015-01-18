@@ -4,6 +4,17 @@
     p= simple_format(@diary.content)
 
 
+    #comments
+      h2.comment_count= pluralize(@diary.comments.count, "Comment")
+      - @comments.each do |comment|
+        .comment
+          p.username
+            = image_tag comment.user.avatar_url
+            span= comment.user.name
+          p.content= comment.content
+
+      = render 'comments/form'
+
     .buttons
       = link_to "All diaries", diaries_path, class: "button"
       = link_to "Edit", edit_diary_path(@diary), class: "button"

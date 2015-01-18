@@ -6,6 +6,7 @@ class DiariesController < ApplicationController
   end
 
   def show
+    @comments = Comment.where(diary_id: @diary)
   end
 
   def new

@@ -5,6 +5,9 @@
         = link_to(diary) do
           .diary
             p.title= diary.title
+            p
+              = diary.comments.count
+              = " Comments"
             p.date= time_ago_in_words(diary.created_at)
     - else
       h2 Add a diary

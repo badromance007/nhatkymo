@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     root 'diaries#index', as: "authenticated_root"
   end
 
-  resources :diaries
+  resources :diaries do
+    resources :comments
+  end
+
   root 'welcome#index'
 end
