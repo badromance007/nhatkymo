@@ -1,13 +1,13 @@
 .wrapper_with_padding
   #diaries.clearfix
-    - unless @diaries.blank?
+    - unless @user_diaries.blank?
       - if user_signed_in?
         p#intro
           = "Xin chào bạn, "
           = current_user.name
           br
           span
-            = "Hãy chia sẻ nhật ký học tập của bạn và truyền cảm hứng cho người khác."
+            = "Dưới đây là những nhật ký học tập bạn đã viết"
       - else
         p#intro
           = "What's your diary?"
@@ -15,7 +15,7 @@
           span
             = "Share your inspiration and see what's inspiring others."
       #posts
-        - @diaries.each do |diary|
+        - @user_diaries.each do |diary|
           .post
             .post_image
               = link_to (image_tag (current_user.avatar_url)), diary
@@ -41,7 +41,7 @@
                   = " ago"
     - else
       h2 Hãy viết một nhật ký học tập
-      p Chưa có nhật ký học tập nào được viết... Bạn hãy là người đầu tiên viết nhật ký nào!
+      p Hình như bạn chưa viết nhật ký học tập nào cả... Hãy viết nhật ký học tập nào!
       button= link_to "Tạo nhật ký mới", new_diary_path
       
 

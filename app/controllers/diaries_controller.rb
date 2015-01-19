@@ -1,8 +1,13 @@
 class DiariesController < ApplicationController
   before_action :find_diary, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   def index
-    @diaries = Diary.where(user_id: current_user)# for display only diaries belong to the user!!!
+    #@diaries = Diary.where(user_id: current_user)# for display only diaries belong to the user!!!
     # for display all the diaries "Diary.all.order("created_at DESC")"
+    @diaries = Diary.all.order("created_at DESC")
+  end
+
+  def mydiaries
+    @user_diaries = Diary.where(user_id: current_user).order("created_at desc")
   end
 
   def show

@@ -5,14 +5,14 @@
         span nhatkymo
     nav
       - if user_signed_in?
-        = link_to current_user.profile_url do
+        = link_to mydiaries_path do
           = image_tag current_user.avatar_url, class: "avatar"
           span= current_user.name
-        = link_to "New Diary", new_diary_path, class: "button-show"
-        = link_to "Sign Out", destroy_user_session_path, method: :delete
+        = link_to "Viết nhật ký mới", new_diary_path, class: "button-show"
+        = link_to "Đăng xuất", destroy_user_session_path, method: :delete
       -else
-        = link_to "Log In", new_user_session_path
-        = link_to "Sign Up", new_user_registration_path
+        = link_to "Đăng nhập", new_user_session_path
+        = link_to "Đăng ký", new_user_registration_path
 
 
   
