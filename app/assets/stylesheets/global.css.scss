@@ -1,6 +1,7 @@
 $dark_gray: #2B2E2E;
 $light_gray: #C0C1C1;
 $green: #33CD99;
+$white: #fff;
 
 @mixin bold_font {
   font-family: "Brandon Grotesque","Helvetica Neue", Helvetica, sans-serif;
@@ -59,11 +60,12 @@ a {
   color: $green;
   text-decoration: none;
   &:hover {
-    color: $dark_gray;
+    color: $white;
   }
 }
 
 header {
+  z-index:2;
   background: $dark_gray;
   position: fixed;
   top: 0;
@@ -105,7 +107,10 @@ header {
         img {
           position: absolute;
           bottom: 1rem;
+          height: 50px;
+          width: 50px;
         }
+
         span {
           margin-left: 3.5rem;
         }

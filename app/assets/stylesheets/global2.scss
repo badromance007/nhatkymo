@@ -1,0 +1,54 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.button-show {
+  border: 1px solid #9B9B9B;
+  padding: .7rem 1.25rem;
+  border-radius: .3rem;
+  outline: none;
+  background: white;
+  color: #9B9B9B;
+}
+
+.header {
+  width: 100%;
+  padding: 2rem 0;
+  border-bottom: 1px solid #E4E4E4;
+  margin-top: -4.5rem;
+  #logo {
+    float: left;
+    font-size: 1.75rem;
+    a {
+      color: #333233;
+      text-decoration: none;
+      &:hover {
+        color: #50A7C7;
+      }
+    }
+  }
+  nav {
+    float: right;
+    margin-top: -2rem;
+    a {
+      margin-left: 1.5rem;
+      line-height: 2;
+      color: #9B9B9B;
+      text-decoration: none;
+      &:hover {
+        color: #50A7C7;
+      }
+      img {
+        position: relative;
+        top: 1.2rem;
+        height: 50px;
+        width: 50px;
+      }
+      span {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

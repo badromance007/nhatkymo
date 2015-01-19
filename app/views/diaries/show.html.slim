@@ -1,30 +1,65 @@
 .wrapper_with_padding
-  #diary_show
+  #post_show
     h1.title= @diary.title
-    p= simple_format(@diary.content)
+    p.username
+      = "Shared by "
+      = @diary.user.name
+      = " about "
+      = time_ago_in_words(@diary.created_at)
+      = " ago"
+    .clearfix
+      .post_image_description
+        .description= simple_format(@diary.content)
+      .post_data
+        = link_to like_diary_path(@diary), method: :get, class: "data" do
+          i.fa.fa-thumbs-o-up
+          = " "
+          = pluralize(@diary.get_upvotes.size, "Like")
+        = link_to dislike_diary_path(@diary), method: :get, class: "data" do
+          i.fa.fa-thumbs-o-down
+          = " "
+          = pluralize(@diary.get_downvotes.size, "Dislike")
+        p.data
+          i.fa.fa-comments-o
+          = " "
+          = pluralize(@diary.comments.count, "Comment")
+        - if @diary.user == current_user
+          = link_to "Edit", edit_diary_path(@diary), class: "data"
+          = link_to "Delete", diary_path(@diary), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
+      #random_post
+         h3 Random Inspiration
+         - @random_diaries.each do |random_diary| 
+          .post
+            .post_image
+              = link_to (image_tag random_diary.user.avatar_url), diary_path(random_diary)
+            .post_content
+              .title
+                h2= link_to random_diary.title, diary_path(random_diary)
+              .data.clearfix
+                p.username
+                  = "Shared by "
+                  = random_diary.user.name
+                p.buttons
+                  span
+                    i.fa.fa-comments-o
+                    = random_diary.comments.count
+                  span
+                    i.fa.fa-thumbs-o-up
+                    = random_diary.get_likes.size
+                  span
+                    i.fa.fa-thumbs-o-down
+                    = random_diary.get_dislikes.size
+          br
 
-    p
-      = @diary.get_upvotes.size
-      = " Likes"
-    p
-      = @diary.get_downvotes.size
-      = " Dislikes"
-    = link_to "Like", like_diary_path(@diary), method: :get
-    = link_to "Dislike", dislike_diary_path(@diary), method: :get
 
-
-    #comments
+  #comments
       h2.comment_count= pluralize(@diary.comments.count, "Comment")
       - @comments.each do |comment|
         .comment
           p.username
-            = image_tag comment.user.avatar_url
+            = image_tag comment.user.avatar_url, class: "avatar"
             span= comment.user.name
           p.content= comment.content
 
       = render 'comments/form'
 
-    .buttons
-      = link_to "All diaries", diaries_path, class: "button"
-      = link_to "Edit", edit_diary_path(@diary), class: "button"
-      = link_to "Delete", diary_path(@diary), method: :delete, data: {confirm: "Are you sure?"}, class: "button"

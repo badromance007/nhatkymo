@@ -7,23 +7,14 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true 
     = csrf_meta_tags 
   body
-    header
-      .header_inner
-        = link_to root_path, id: "logo" do
-          i.fa.fa-pencil-square-o 
-            span nhatkymo
-
-        nav
-          - if user_signed_in?
-            = link_to current_user.profile_url do
-              = image_tag current_user.avatar_url
-              span= current_user.name
-            = link_to "New Diary", new_diary_path
-            = link_to "Sign Out", destroy_user_session_path, method: :delete
-          - else
-            = link_to "Log In", new_user_session_path
-            = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) 
-            = link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
+    - if current_page?(controller: 'diaries', action: 'show')
+      = render 'layouts/header'
+    - elsif current_page?(controller: 'diaries', action: 'new')
+      = render 'layouts/header'
+    - else
+      = render 'layouts/global_header' 
+       
+    
     p.notice= notice 
     p.alert= alert 
     

@@ -1,20 +1,44 @@
 .wrapper_with_padding
   #diaries.clearfix
     - unless @diaries.blank?
-      - @diaries.each do |diary|
-        = link_to(diary) do
-          .diary
-            p.title= diary.title
-            p
-              = diary.comments.count
-              = " Comments"
-            p
-              = diary.get_likes.size
-              = " Likes"
-            p
-              = diary.get_dislikes.size
-              = " Dislikes"
-            p.date= time_ago_in_words(diary.created_at)
+      - if user_signed_in?
+        p#intro
+          = "Hello "
+          = current_user.name
+          br
+          span
+            = "Share your inspiration and see what's inspiring others."
+      - else
+        p#intro
+          = "What's your diary?"
+          br
+          span
+            = "Share your inspiration and see what's inspiring others."
+      #posts
+        - @diaries.each do |diary|
+          .post
+            .post_image
+              = link_to (image_tag (current_user.avatar_url)), diary
+            .post_content
+              .title
+                h2= link_to diary.title, diary
+              .data.clearfix
+                p.username
+                  = "Shared by "
+                  = diary.user.name
+                p.buttons
+                  span
+                    i.fa.fa-comments-o
+                    = diary.comments.count
+                  span
+                    i.fa.fa-thumbs-o-up
+                    = diary.get_likes.size
+                  span
+                    i.fa.fa-thumbs-o-down
+                    = diary.get_dislikes.size
+                p.date
+                  = time_ago_in_words(diary.created_at)
+                  = " ago"
     - else
       h2 Add a diary
       p It appears you haven't created any diaries yet... Let's fix that. Why don't you create a new diary below.

@@ -7,6 +7,7 @@ class DiariesController < ApplicationController
 
   def show
     @comments = Comment.where(diary_id: @diary)
+    @random_diaries = Diary.where.not(id: @diary).order("RANDOM()").limit(3)
   end
 
   def new
