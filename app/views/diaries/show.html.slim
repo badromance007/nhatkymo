@@ -3,6 +3,15 @@
     h1.title= @diary.title
     p= simple_format(@diary.content)
 
+    p
+      = @diary.get_upvotes.size
+      = " Likes"
+    p
+      = @diary.get_downvotes.size
+      = " Dislikes"
+    = link_to "Like", like_diary_path(@diary), method: :get
+    = link_to "Dislike", dislike_diary_path(@diary), method: :get
+
 
     #comments
       h2.comment_count= pluralize(@diary.comments.count, "Comment")

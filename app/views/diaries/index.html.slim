@@ -8,6 +8,12 @@
             p
               = diary.comments.count
               = " Comments"
+            p
+              = diary.get_likes.size
+              = " Likes"
+            p
+              = diary.get_dislikes.size
+              = " Dislikes"
             p.date= time_ago_in_words(diary.created_at)
     - else
       h2 Add a diary

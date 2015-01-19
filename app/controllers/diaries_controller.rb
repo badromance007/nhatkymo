@@ -1,5 +1,5 @@
 class DiariesController < ApplicationController
-  before_action :find_diary, only: [:show, :edit, :update, :destroy]
+  before_action :find_diary, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   def index
     @diaries = Diary.where(user_id: current_user)# for display only diaries belong to the user!!!
     # for display all the diaries "Diary.all.order("created_at DESC")"
@@ -37,6 +37,16 @@ class DiariesController < ApplicationController
   def destroy
     @diary.destroy
     redirect_to diaries_path
+  end
+
+  def upvote
+    @diary.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @diary.downvote_by current_user
+    redirect_to :back
   end
 
   private

@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources :diaries do
+    member do 
+      get "like", to: "diaries#upvote"
+      get "dislike", to: "diaries#downvote"
+    end
+
     resources :comments
   end
 
