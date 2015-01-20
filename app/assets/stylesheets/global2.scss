@@ -13,6 +13,21 @@
   color: #9B9B9B;
 }
 
+.avatar {
+  height: 50px;
+  width: 50px;
+}
+
+.header-bootstrap {
+  margin-top: -4.5rem;
+  #logo {
+    i, i span {
+      font-size: 2.75rem;
+      color: #2F363E;
+    }
+  }
+}
+
 .header {
   width: 100%;
   padding: 2rem 0;

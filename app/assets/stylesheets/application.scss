@@ -13,7 +13,8 @@
  *= require_self
  */
 
-@import 'normalize';
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "global.css.scss";
 @import "diaries.scss";
 @import "welcome.scss";

@@ -8,14 +8,19 @@ html
     = csrf_meta_tags 
   body
     - if current_page?(controller: 'diaries', action: 'show')
-      = render 'layouts/header'
+      = render 'layouts/header_bootstrap'
     - elsif current_page?(controller: 'diaries', action: 'new')
-      = render 'layouts/header'
+      = render 'layouts/header_bootstrap'
     - else
       = render 'layouts/global_header' 
        
-    
-    p.notice= notice 
-    p.alert= alert 
+    - if notice || alert
+      div 
+        p.notice= notice 
+        p.alert= alert 
+    - else
+      div style=("display: none;") 
+        p.notice= notice 
+        p.alert= alert 
     
     = yield 
