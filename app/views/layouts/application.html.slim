@@ -14,13 +14,17 @@ html
     - else
       = render 'layouts/global_header' 
        
-    - if notice || alert
-      div 
-        p.notice= notice 
-        p.alert= alert 
+    - if notice 
+      .alert.alert-success.notice role="alert"
+          = notice 
+    - elsif alert
+      .alert.alert-success.notice role="alert"
+          = alert        
     - else
       div style=("display: none;") 
-        p.notice= notice 
-        p.alert= alert 
+        .alert.alert-success.notice role="alert"
+          = notice 
+        .alert.alert-success.alert role="alert"
+          = alert 
     
     = yield 
