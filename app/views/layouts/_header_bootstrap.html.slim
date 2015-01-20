@@ -17,7 +17,10 @@ div.header-bootstrap
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
             li
-              = image_tag current_user.avatar_url, class: "avatar"
+              - if current_user.avatar_url
+                = image_tag current_user.avatar_url, class: "avatar"
+              - else
+                = image_tag "placeholder.png", class: "avatar"
             li.dropdown
               a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
                 = current_user.name

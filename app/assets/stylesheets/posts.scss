@@ -37,7 +37,8 @@
     margin-top: -3.2rem;
     float: left;
     h3 {
-      font-size: 1rem;
+      font-size: 0.95rem;
+      font-weight: bold;
     }
     .post {
       background: #F8F9FA;
@@ -57,7 +58,7 @@
           font-weight: 100;
           padding: 1rem 5%;
           border-bottom: 1px solid #E4E4E4;
-          font-size: 1.25rem;
+          font-size: 1.55rem;
           a {
             text-decoration: none;
             color: #333233;
@@ -71,7 +72,7 @@
           color: #969696;
           .username, .buttons {
             margin: 0;
-            font-size: .8rem;
+            font-size: 1.2rem;
           }
           .username {
             float: left;
@@ -100,7 +101,7 @@
   }
   .description {
     margin: 2rem 0;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     line-height: 1.5;
     color: #969696;
   }

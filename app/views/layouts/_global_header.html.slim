@@ -1,29 +1,13 @@
-header
-  .header_inner
-    = link_to root_path, id: "logo" do
-      i.fa.fa-pencil-square-o 
-        span nhatkymo
+- if user_signed_in?
+  = render 'layouts/header_bootstrap'
+- else
+  header
+    .header_inner
+      = link_to root_path, id: "logo" do
+        i.fa.fa-pencil-square-o 
+          span nhatkymo
 
-    nav
-      - if user_signed_in?
-        ul.nav.navbar-nav.navbar-right
-          li
-            = image_tag current_user.avatar_url, class: "avatar"
-          li.dropdown
-            a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
-              = current_user.name
-              span.caret
-            ul.dropdown-menu role="menu" 
-              li
-                = link_to "Sửa thông tin cá nhân", edit_user_registration_path
-              li.divider
-              li
-                = link_to "Hoạt động viết nhật ký", mydiaries_path
-          li
-            = link_to "Viết nhật ký mới", new_diary_path
-          li
-            = link_to "Đăng xuất", destroy_user_session_path, method: :delete
-      - else
+      nav
         = link_to "Đăng nhập", new_user_session_path
         = link_to user_omniauth_authorize_path(:facebook) do 
           = "Đăng nhập với " 
