@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   # routes for styling different headers in show page and the rest
   get 'diaries/show'
   get 'devise/diaries/new'
-  get 'devise/diaries/index'
+  get 'devise/diaries/index' 
   get 'devise/diaries/show'
+
+  get 'diaries/gopy'
+
 
   resources :users
 

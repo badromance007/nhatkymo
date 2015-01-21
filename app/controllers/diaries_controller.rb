@@ -10,6 +10,9 @@ class DiariesController < ApplicationController
     @user_diaries = Diary.where(user_id: current_user).order("created_at desc")
   end
 
+  def gopy
+  end
+
   def show
     @comments = Comment.where(diary_id: @diary)
     @random_diaries = Diary.where.not(id: @diary).order("RANDOM()").limit(3)
