@@ -46,6 +46,10 @@ button, .button {
   background: $green;
   padding: 1.5rem 5rem;
   border-radius: 3rem;
+  &:hover {
+      text-decoration: none;
+      color: white;
+  }
   a {
     color: white;
     text-decoration: none;
