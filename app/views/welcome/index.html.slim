@@ -1,13 +1,13 @@
 #banner
   .banner_content
     h1 Nhật Ký Mở
-    p Keep track of your progress and share your ideas!
+    p Keep track of your progress and share your ideas with others!
     = link_to "Đăng ký nào!!!", new_user_registration_path, class: "button"
 
 #testimonial
   .wrapper
-    p.quote "Chẳng còn gì tuyệt vời hơn khi bạn có thể theo giỏi sự tiến bộ của mình từng ngày và chia sẻ trải nghiệm ấy với mọi người."
-    p.name - Tường Trọng Nguyễn
+    p.quote "Chẳng còn gì tuyệt vời hơn khi bạn có thể theo giỏi sự tiến bộ của mình từng ngày và chia sẻ trải nghiệm ấy với những người khác."
+    p.name - NHẬT KÝ MỞ
 
 #callouts
   .callout_inner
@@ -28,7 +28,12 @@
 #bottom_cta
   .wrapper
     h2 Tham gia nào!
-    p Còn chần chờ gì nữa hãy đăng ký ngay, bắt đầu viết nhật ký học tập của bạn và truyền động lực cho người khác! 
+    p 
+      = "Hiện đã có "
+      span.number_members
+        = User.all.count
+        = " thành viên"
+      = " tham gia... Hãy nhanh chân nào, bắt đầu viết nhật ký học tập của bạn và truyền động lực cho người khác!" 
     = link_to "Click vào đây để tạo tài khoản ngay!!!", new_user_registration_path, class: "button"
 
 footer
