@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'welcome/index'
   match "users/mydiaries" => "diaries#mydiaries", :via => [:get], :as => "mydiaries"
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   get 'devise/diaries/new'
   get 'devise/diaries/index'
   get 'devise/diaries/show'
+
+  resources :users
 
   authenticated :user do # change index when user have authenticated
     root 'diaries#index', as: "authenticated_root"

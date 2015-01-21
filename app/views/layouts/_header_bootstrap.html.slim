@@ -30,7 +30,7 @@ div.header-bootstrap
                   = link_to "Hoạt động viết nhật ký", mydiaries_path
                 li.divider
                 li
-                  = link_to "Sửa thông tin cá nhân", edit_user_registration_path
+                  = link_to "Thông tin cá nhân", user_path(current_user)
                 li.divider
                 li
                   = link_to "Đăng xuất", destroy_user_session_path, method: :delete

@@ -1,0 +1,40 @@
+.container
+  .col-sm-4
+    h1 Thông tin cá nhân
+    table.table
+      thead
+      tbody
+        tr
+          td Ảnh đại diện
+          td
+            - if @user.avatar_url
+              = image_tag @user.avatar_url, class: "avatar"
+            - else
+              = image_tag "placeholder.png", class: "avatar"
+        tr
+          td Tên
+          td 
+            = @user.name
+        tr
+          td Đăng nhập bởi
+          td
+            - if @user.provider
+              = link_to  @user.provider.to_s.titleize.split(" ").first, @user.profile_url
+            - else
+              = link_to "Nhật ký mở", root_path
+        tr
+          td Cấp
+          td
+            .label.label-warning Thành viên
+        tr
+          td Ngày tham gia
+          td 
+            = @user.created_at.strftime("Tham gia từ ngày %d tháng %m năm %Y")
+        tr
+          td
+            span.translation_missing title=("translation missing: vi.user.likes")  Likes
+          td
+            a.btn.btn-sm.btn-default data-toggle="modal" href="#view_likes"  0
+
+    a.btn.btn-primary href="/users/edit.8"  Cập nhật thông tin
+
