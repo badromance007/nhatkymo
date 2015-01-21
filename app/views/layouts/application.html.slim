@@ -7,6 +7,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true 
     = csrf_meta_tags 
   body
+    = render 'layouts/facebook_sdk'
+
     - if current_page?(controller: 'diaries', action: 'show')
       = render 'layouts/header_bootstrap'
     - elsif current_page?(controller: 'diaries', action: 'new')
