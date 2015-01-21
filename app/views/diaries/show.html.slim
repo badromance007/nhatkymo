@@ -34,7 +34,10 @@
               - if random_diary.user.avatar_url
                 = link_to (image_tag random_diary.user.avatar_url), diary_path(random_diary)
               - else
-                = link_to (image_tag "placeholder.png"), diary_path(random_diary)
+                - if random_diary.user.image_avatar.url
+                  = link_to (image_tag random_diary.user.image_avatar.url(:medium)), diary_path(random_diary)
+                - else
+                  = link_to (image_tag "placeholder.png"), diary_path(random_diary)
             .post_content
               .title
                 h2= link_to random_diary.title, diary_path(random_diary)

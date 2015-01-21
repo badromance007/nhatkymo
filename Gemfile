@@ -52,5 +52,5 @@ gem 'devise', '~> 3.4.1'
 gem 'omniauth-facebook', '~> 2.0.0'
 gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'acts_as_votable', '~> 0.10.0'
-
+gem 'paperclip', '~> 4.2.1'
 gem 'bootstrap-sass', '~> 3.3.3'

@@ -10,7 +10,10 @@
             - if @user.avatar_url
               = image_tag @user.avatar_url, class: "avatar"
             - else
-              = image_tag "placeholder.png", class: "avatar"
+              - if @user.image_avatar.url
+                = image_tag @user.image_avatar.url(:small), class: "avatar"
+              - else
+                = image_tag "placeholder.png", class: "avatar"
         tr
           td Tên
           td 
@@ -36,5 +39,5 @@
           td
             a.btn.btn-sm.btn-default data-toggle="modal" href="#view_likes"  0
 
-    a.btn.btn-primary href="/users/edit.8"  Cập nhật thông tin
+    = link_to "Cập nhật thông tin", edit_user_registration_path, class: "btn btn-primary"  
 

@@ -7,7 +7,7 @@
           = current_user.name
           br
           span
-            = "Hãy chia sẻ nhật ký học tập của bạn và truyền cảm hứng cho người khác."
+            = "Nào, hãy chia sẻ nhật ký học tập của bạn và truyền cảm hứng cho người khác."
       - else
         p#intro
           = "What's your diary?"
@@ -21,7 +21,10 @@
               - if diary.user.avatar_url
                 = link_to (image_tag (diary.user.avatar_url)), diary
               - else 
-                = link_to (image_tag "placeholder.png"), diary
+                - if diary.user.image_avatar.url
+                  = link_to (image_tag diary.user.image_avatar.url(:medium)), diary
+                - else
+                  = link_to (image_tag "placeholder.png"), diary
             .post_content
               .title
                 h2= link_to diary.title, diary

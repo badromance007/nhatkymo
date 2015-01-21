@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :diaries, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_attached_file :image_avatar, :styles => { :medium => "500x500#", :small => "50x50#" }, :default_url => "placeholder.png"
+  validates_attachment_content_type :image_avatar, :content_type => /\Aimage\/.*\Z/
+
 
   #for facebook login
   def self.from_omniauth(auth)
