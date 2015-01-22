@@ -19,15 +19,15 @@
           .post
             .post_image
               - if diary.user.avatar_url
-                = link_to (image_tag (diary.user.avatar_url)), diary
+                = link_to (image_tag (diary.user.avatar_url)), diary, "data-no-turbolink" => ""
               - else
                 - if diary.user.image_avatar.url
-                  = link_to (image_tag (diary.user.image_avatar.url(:medium))), diary
+                  = link_to (image_tag (diary.user.image_avatar.url(:medium))), diary, "data-no-turbolink" => ""
                 - else
-                  = link_to (image_tag "placeholder.png"), diary
+                  = link_to (image_tag "placeholder.png"), diary, "data-no-turbolink" => ""
             .post_content
               .title
-                h2= link_to diary.title, diary
+                h2= link_to diary.title, diary, "data-no-turbolink" => ""
               .data.clearfix
                 p.username
                   = "Shared by "

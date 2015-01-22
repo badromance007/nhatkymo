@@ -1,0 +1,19 @@
+h2.comment_count= pluralize(@diary.comments.count, "Comment")
+
+    - @comments.each do |comment|
+      .comment
+        .username.pull-left
+          - if comment.user.avatar_url
+            = image_tag comment.user.avatar_url, class: "avatar"
+          - else
+            - if comment.user.image_avatar.url
+              = image_tag comment.user.image_avatar.url(:small), class: "avatar"
+            - else
+              = image_tag "placeholder.png", class: "avatar"
+            
+        div
+          span= comment.user.name
+          .content
+            = simple_format(comment.content)
+
+    = render 'comments/form'
