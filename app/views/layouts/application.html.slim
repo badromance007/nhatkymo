@@ -6,12 +6,26 @@ html
     link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" 
     = javascript_include_tag 'application', 'data-turbolinks-track' => true 
     = csrf_meta_tags 
+
+    
+    meta content="1538529833084665" property="fb:app_id" /
+    meta content=("http://nhatkymo.herokuapp.com/") property="og:url" /
+    meta content=("Nhật Ký Mở") property="og:title" /
+    meta content=("Viết nhật ký học tập trong ngày của bạn, hiện tại bạn đang ở đâu, mục tiêu của bạn là gì và những bài học cùng thời gian bạn đã hoàn thành chúng trong ngày hôm nay,...") property="og:description" /
+    meta content=("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSN7PdwwIUhuDyEj4iB0gcpyDtGrpLLO-SwMt5w45kK_wpdNLnd") property="og:image" /
+    meta content=("Nhật Ký Mở") property="og:site_name" /
+    meta content="website" property="og:type" /
+
+
+
   body
     = render 'layouts/facebook_sdk'
 
     - if current_page?(controller: 'diaries', action: 'show')
       = render 'layouts/header_bootstrap'
     - elsif current_page?(controller: 'diaries', action: 'new')
+      = render 'layouts/header_bootstrap'
+    - elsif current_page?(controller: 'diaries', action: 'gopy')
       = render 'layouts/header_bootstrap'
     - else
       = render 'layouts/global_header' 
