@@ -49,7 +49,7 @@ div.header-bootstrap
                   = link_to "Hướng dẫn sử dụng", "#"
                 li.divider
                 li
-                  = link_to "Góp ý", diaries_gopy_path
+                  = link_to "Góp ý", diaries_gopy_path, "data-no-turbolink" => ""
           -else
             li
               = link_to "Đăng nhập", new_user_session_path
