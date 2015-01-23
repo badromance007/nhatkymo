@@ -20,15 +20,15 @@ html
 
   body
     = render 'layouts/facebook_sdk'
-
-    - if current_page?(controller: 'diaries', action: 'show')
-      = render 'layouts/header_bootstrap'
-    - elsif current_page?(controller: 'diaries', action: 'new')
-      = render 'layouts/header_bootstrap'
-    - elsif current_page?(controller: 'diaries', action: 'gopy')
+    
+    - if user_signed_in?
       = render 'layouts/header_bootstrap'
     - else
-      = render 'layouts/global_header' 
+      - if current_page?(root_url)
+        = render 'layouts/global_header'
+      - else
+        = render 'layouts/header_bootstrap'
+    
        
     - if notice 
       .alert.alert-success.notice role="alert"
