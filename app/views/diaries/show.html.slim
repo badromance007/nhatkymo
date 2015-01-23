@@ -11,7 +11,10 @@
       = " ago"
     .clearfix
       .post_image_description
-        .description= simple_format(@diary.content)
+        .description
+          = simple_format(@diary.content)
+          #comments   
+            .fb-comments data-colorscheme="light" data-href=diary_url(@diary)  data-numposts="5" data-width="600"
       .post_data
         = link_to like_diary_path(@diary), method: :get, class: "data" do
           i.fa.fa-thumbs-o-up
@@ -24,7 +27,7 @@
         p.data
           i.fa.fa-comments-o
           = " "
-          = pluralize(@diary.comments.count, "Comment")
+          fb:comments-count href=diary_url(@diary)
         - if @diary.user == current_user
           = link_to "Edit", edit_diary_path(@diary), class: "data"
           = link_to "Delete", diary_path(@diary), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
@@ -66,7 +69,7 @@
       = diary_url(@diary) 
       = " "
     fb:comments-count href=@diary_url 
-    .fb-comments data-colorscheme="light" data-href=diary_url(@diary)  data-numposts="5" data-width="800" 
+     
 
 
 
