@@ -35,7 +35,7 @@
                 p.buttons
                   span
                     i.fa.fa-comments-o
-                    = diary.comments.count
+                    fb:comments-count href=diary_url(diary)
                   span
                     i.fa.fa-thumbs-o-up
                     = diary.get_likes.size
