@@ -53,7 +53,7 @@
                 p.buttons
                   span
                     i.fa.fa-comments-o
-                    = random_diary.comments.count
+                    fb:comments-count href=diary_url(random_diary)
                   span
                     i.fa.fa-thumbs-o-up
                     = random_diary.get_likes.size
