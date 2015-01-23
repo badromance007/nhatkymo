@@ -13,6 +13,9 @@ class DiariesController < ApplicationController
   def gopy
   end
 
+  def huongdan
+  end
+
   def show
     @comments = Comment.where(diary_id: @diary)
     @random_diaries = Diary.where.not(id: @diary).order("RANDOM()").limit(3)

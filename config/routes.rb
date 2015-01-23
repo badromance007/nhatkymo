@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'diaries/gopy'
   get 'devise/diaries/gopy'
+  get 'diaries/huongdan'
+  get 'devise/diaries/huongdan'
 
 
   resources :users
