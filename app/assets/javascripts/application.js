@@ -22,9 +22,14 @@ $(document).on("ready page:change", function() {
 
     for( var i = 0; i < gon.user_diaries_urls.length; i++ ) {
       var fburl = "https://graph.facebook.com/v2.1/?fields=share{comment_count}&id=".concat(gon.user_diaries_urls[i].toString());
-      $.getJSON(fburl, function(data){
-        total += parseInt(data.share.comment_count, 10);
-        console.log(total);
+
+      $.ajax({
+          async: false,
+          url: fburl,
+          success: function(data) {
+            total += parseInt(data.share.comment_count);
+            console.log(total);
+          }
       });
     }
 
