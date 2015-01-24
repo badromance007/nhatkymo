@@ -1,12 +1,51 @@
 .container
+  .col-sm-8
+    h1 Nhật ký đã viết
+    #diaries.clearfix
+      - unless @user_diaries.blank?
+        #posts
+          - @user_diaries.each do |diary|
+            .post
+              .post_image
+                - if diary.user.avatar_url
+                  = link_to (image_tag (diary.user.avatar_url)), diary, "data-no-turbolink" => ""
+                - else
+                  - if diary.user.image_avatar.url
+                    = link_to (image_tag (diary.user.image_avatar.url(:medium))), diary, "data-no-turbolink" => ""
+                  - else
+                    = link_to (image_tag "placeholder.png"), diary, "data-no-turbolink" => ""
+              .post_content
+                .title
+                  h2= link_to truncate(diary.title, length: 25), diary, "data-no-turbolink" => ""
+                .data.clearfix
+                  p.username
+                    = "Shared by "
+                    = diary.user.name
+                  p.buttons
+                    span
+                      i.fa.fa-comments-o
+                      fb:comments-count href=diary_url(diary)
+                    span
+                      i.fa.fa-thumbs-o-up
+                      = diary.get_likes.size
+                    span
+                      i.fa.fa-thumbs-o-down
+                      = diary.get_dislikes.size
+                  p.date
+                    = time_ago_in_words(diary.created_at)
+                    = " ago"
+      - else
+        h2 Hãy viết một nhật ký học tập
+        p Hình như bạn chưa viết nhật ký học tập nào cả... Hãy viết nhật ký học tập nào!
+        button= link_to "Tạo nhật ký mới", new_diary_path
+
   .col-sm-4
     h1 Thông tin cá nhân
     table.table
       thead
       tbody
         tr
-          td Ảnh đại diện
-          td
+          td 
             - if @user.avatar_url
               = image_tag @user.avatar_url, class: "avatar"
             - else
@@ -14,30 +53,41 @@
                 = image_tag @user.image_avatar.url(:small), class: "avatar"
               - else
                 = image_tag "placeholder.png", class: "avatar"
+          td
+            h4= @user.name
+            p= @user.created_at.strftime("Tham gia từ ngày %d/%m/%Y")
         tr
-          td Tên
-          td 
-            = @user.name
-        tr
-          td Đăng nhập bởi
+          td Đăng nhập bởi:
           td
             - if @user.provider
               = link_to  @user.provider.to_s.titleize.split(" ").first, @user.profile_url
             - else
               = link_to "Nhật ký mở", root_path
         tr
-          td Cấp
-          td
-            .label.label-warning Thành viên
-        tr
-          td Ngày tham gia
+          td Số nhật ký đã viết:
           td 
-            = @user.created_at.strftime("Tham gia từ ngày %d tháng %m năm %Y")
+            = @user.diaries.count
         tr
-          td
-            span.translation_missing title=("translation missing: vi.user.likes")  Likes
-          td
-            a.btn.btn-sm.btn-default data-toggle="modal" href="#view_likes"  0
+          td Được like:
+          td 
+            - total = 0
+            - @user.diaries.each do |diary|
+              - total += diary.get_likes.size 
+            = total
+            = " " 
+            | lần 
+        tr
+          td Được bình luận:
+          td 
+            | 0 
+            | lần
 
-    = link_to "Cập nhật thông tin", edit_user_registration_path, class: "btn btn-primary"  
+        tr
+          td Số ngày thử thách:
+          td
+            .label.label-warning
+              |Ngày thứ 
+              = (Time.now.to_date - @user.created_at.to_date).to_i + 1
+        
+      
 

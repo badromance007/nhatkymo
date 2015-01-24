@@ -6,10 +6,6 @@ class DiariesController < ApplicationController
     @diaries = Diary.all.order("created_at DESC")
   end
 
-  def mydiaries
-    @user_diaries = Diary.where(user_id: current_user).order("created_at desc")
-  end
-
   def gopy
   end
 

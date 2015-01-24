@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'welcome/index'
-  match "users/mydiaries" => "diaries#mydiaries", :via => [:get], :as => "mydiaries"
+  #match "users/mydiaries" => "diaries#mydiaries", :via => [:get], :as => "mydiaries"
 
   # routes for styling different headers in show page and the rest
   get 'diaries/show'
