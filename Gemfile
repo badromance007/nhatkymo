@@ -54,3 +54,5 @@ gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'paperclip', '~> 4.2.1'
 gem 'bootstrap-sass', '~> 3.3.3'
+
+gem 'gon', '~> 5.2.3'

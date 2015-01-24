@@ -15,3 +15,17 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+var total = 0;
+
+for( var i = 0; i < gon.user_diaries_urls.length; i++ ) {
+  var fburl = "https://graph.facebook.com/v2.1/?fields=share{comment_count}&id=".concat(gon.user_diaries_urls[i]);
+  $.getJSON(fburl, function(data){
+    total += parseInt(data.share.comment_count);
+  });
+}
+
+$("#total_comments").text(total); 
+
+
+console.log("Total of comments is: " + total);

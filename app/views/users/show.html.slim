@@ -82,7 +82,13 @@
         tr
           td Được bình luận:
           td 
-            | 0 
+            fb:comments-count href="http://nhatkymo.herokuapp.com/diaries/15"
+            = " "
+            | and 
+            fb:comments-count href="http://nhatkymo.herokuapp.com/diaries/23"
+            = " "
+            span#total_comments
+            = " "
             | lần
 
         tr
