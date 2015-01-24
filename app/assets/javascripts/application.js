@@ -16,17 +16,22 @@
 //= require turbolinks
 //= require_tree .
 
-var total = 0;
 
-for( var i = 0; i < gon.user_diaries_urls.length; i++ ) {
-  var fburl = "https://graph.facebook.com/v2.1/?fields=share{comment_count}&id=".concat(gon.user_diaries_urls[i].toString());
-  $.getJSON(fburl, function(data){
-    console.log(parseInt(data.share.comment_count));
-    total += parseInt(data.share.comment_count);
-  });
-}
+$(document).on("ready page:change", function() {
+    var total = 0;
 
-$("#total_comments").text(total); 
+    for( var i = 0; i < gon.user_diaries_urls.length; i++ ) {
+      var fburl = "https://graph.facebook.com/v2.1/?fields=share{comment_count}&id=".concat(gon.user_diaries_urls[i].toString());
+      $.getJSON(fburl, function(data){
+        console.log(parseInt(data.share.comment_count));
+        total += parseInt(data.share.comment_count);
+      });
+    }
+
+    $("#total_comments").text(total); 
 
 
-console.log("Total of comments is: " + total);
+    console.log("Total of comments is: " + total);
+
+});
+
