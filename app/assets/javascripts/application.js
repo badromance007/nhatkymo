@@ -28,15 +28,11 @@ $(document).on("ready page:change", function() {
           url: fburl,
           success: function(data) {
             total += parseInt(data.share.comment_count);
-            console.log(total);
           }
       });
     }
 
     $("#total_comments").text(total); 
-
-
-    console.log("Total of comments is: " + total);
 
 });
 
