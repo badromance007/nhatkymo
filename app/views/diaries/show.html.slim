@@ -9,6 +9,7 @@
       = " about "
       = time_ago_in_words(@diary.created_at)
       = " ago"
+      .fb-share-button data-href=diary_url(@diary) data-layout="button_count" 
     .clearfix
       .post_image_description
         .description

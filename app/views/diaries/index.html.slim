@@ -44,9 +44,12 @@
                   span
                     i.fa.fa-thumbs-o-down
                     = diary.get_dislikes.size
+
                 p.date
                   = time_ago_in_words(diary.created_at)
                   = " ago"
+                p
+                  .fb-share-button data-href=diary_url(diary) data-layout="button_count" 
     - else
       h2 Hãy viết một nhật ký học tập
       p Chưa có nhật ký học tập nào được viết... Bạn hãy là người đầu tiên viết nhật ký nào!

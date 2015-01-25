@@ -34,6 +34,8 @@
                   p.date
                     = time_ago_in_words(diary.created_at)
                     = " ago"
+                  p
+                    .fb-share-button data-href=diary_url(diary) data-layout="button_count" 
       - else
         h2 Hãy viết một nhật ký học tập
         p Hình như bạn chưa viết nhật ký học tập nào cả... Hãy viết nhật ký học tập nào!
