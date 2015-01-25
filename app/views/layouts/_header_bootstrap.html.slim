@@ -55,4 +55,12 @@ div.header-bootstrap
               = link_to "Đăng nhập", new_user_session_path
             li
               = link_to "Đăng ký", new_user_registration_path
+            li
+              = link_to user_omniauth_authorize_path(:facebook) do 
+                = "Đăng nhập với " 
+                i.fa.fa-facebook-square
+            li
+              = link_to user_omniauth_authorize_path(:google_oauth2) do
+                = "Đăng nhập với "
+                i.fa.fa-google-plus-square
 
