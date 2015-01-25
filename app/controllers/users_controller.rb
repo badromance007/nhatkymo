@@ -35,7 +35,9 @@ class UsersController < ApplicationController
     @fb_comments_number = 0
     # get the number of comments
     fb_comments_datas.each do | data | 
-      @fb_comments_number += data["share"]["comment_count"].to_i
+      if data.length > 1
+        @fb_comments_number += data["share"]["comment_count"].to_i
+      end
     end
     
 
