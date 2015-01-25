@@ -56,3 +56,4 @@ gem 'paperclip', '~> 4.2.1'
 gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'gon', '~> 5.2.3'
+gem 'koala', '~> 1.11.0'

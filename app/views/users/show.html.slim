@@ -82,9 +82,12 @@
         tr
           td Được bình luận:
           td 
-            span#total_comments
+            span
             = " "
-            | lần
+            = @fb_comments_number
+            = " "
+            | lần 
+
 
         tr
           td Số ngày thử thách:
