@@ -20,7 +20,7 @@
                 .data.clearfix
                   p.username
                     = "Shared by "
-                    = diary.user.name
+                    = link_to diary.user.name, user_path(diary.user), "data-no-turbolink" => ""
                   p.buttons
                     span
                       i.fa.fa-comments-o
