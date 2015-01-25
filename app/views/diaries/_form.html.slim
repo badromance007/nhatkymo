@@ -1,4 +1,4 @@
 = simple_form_for @diary do |f| 
-  = f.input :title
-  = f.input :content
+  = f.input :title, label: "Tiêu đề"
+  = f.input :content, label: "Nội dung"
   = f.button :submit, :value => "Viết nhật ký mới", class: "button"
