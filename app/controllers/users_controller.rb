@@ -7,8 +7,14 @@ class UsersController < ApplicationController
     #first time
     url_commented_on = "http://nhatkymo.herokuapp.com/diaries/22"
     fb_comments_url = "https://graph.facebook.com/v2.1/?fields=share{comment_count}&id="+url_commented_on
-    fb_comments_json = open(fb_comments_url).read
-    fb_comments_data = ActiveSupport::JSON.decode(fb_comments_json)
+    #fb_comments_json = open(fb_comments_url).read
+    #fb_comments_data = ActiveSupport::JSON.decode(fb_comments_json)
+
+    require 'restclient'
+    
+    user_info = RestClient.get(fb_comments_url, "User-Agent" => "Ruby")
+
+    fb_comments_data = ActiveSupport::JSON.decode(user_info)
 
     # get the number of comments
     @fb_comments = fb_comments_data["share"]["comment_count"]

@@ -57,3 +57,4 @@ gem 'bootstrap-sass', '~> 3.3.3'
 
 gem 'gon', '~> 5.2.3'
 gem 'koala', '~> 1.11.0'
+gem 'rest-client', '~> 1.7.2'
