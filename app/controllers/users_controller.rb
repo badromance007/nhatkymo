@@ -11,8 +11,11 @@ class UsersController < ApplicationController
     #fb_comments_data = ActiveSupport::JSON.decode(fb_comments_json)
 
     require 'restclient'
+
+    url = URI.parse(URI.encode(fb_comments_url.strip))
     
-    user_info = RestClient.get(fb_comments_url, "User-Agent" => "Ruby")
+    #user_info = RestClient.get(url, "User-Agent" => "Ruby")
+    user_info = open(url).read
 
     fb_comments_data = ActiveSupport::JSON.decode(user_info)
 
