@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'devise/diaries/gopy'
   get 'diaries/huongdan'
   get 'devise/diaries/huongdan'
+  
 
 
   resources :users
