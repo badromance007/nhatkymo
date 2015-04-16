@@ -36,7 +36,7 @@ class UsersController < ApplicationController
      fb_comments_jsons = []
      fb_comments_urls.each do | graph_url |
        url = URI.parse(URI.encode(graph_url.strip))
-       fb_comments_jsons << open(url).read
+       fb_comments_jsons << open(url, 'User-Agent' => 'ruby').read
      end
      fb_comments_datas = []
      fb_comments_jsons.each do | graph_url_json |
