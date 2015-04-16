@@ -1,5 +1,6 @@
 = provide(:current_url, diary_url(@diary))
 = provide(:current_title, @diary.title)
+= provide(:current_description, @diary.content.truncate(160))
 
 .wrapper_with_padding
   #post_show

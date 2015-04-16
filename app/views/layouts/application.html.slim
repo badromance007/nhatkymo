@@ -10,11 +10,13 @@ html
 
     link rel="shortcut icon" href=image_path("icon_web.ico")
 
+    meta content=yield(:current_description) name="description" /
+
     
     meta content="1538529833084665" property="fb:app_id" /
     meta property="og:url"  content= yield(:current_url)  
     meta content= yield(:current_title) property="og:title" /
-    meta content=("Viết nhật ký học tập trong ngày của bạn, hiện tại bạn đang ở đâu, mục tiêu của bạn là gì và những bài học cùng thời gian bạn đã hoàn thành chúng trong ngày hôm nay,...") property="og:description" /
+    meta content= yield(:current_description) property="og:description" /
     meta content=image_url("icon_image.png") property="og:image" /
     meta content=("Nhật Ký Mở") property="og:site_name" /
     meta content="website" property="og:type" /
