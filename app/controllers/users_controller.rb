@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show]
   def show
     @user_diaries = Diary.where(user_id: find_user).order("created_at desc").page(params[:page]).per(12)
+    @user_diaries_counter = Diary.where(user_id: find_user).order("created_at desc")
      
 
     #first time
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
 
     # second time
      url_commented_ons = []
-     @user_diaries.each do |diary |
+     @user_diaries_counter.each do |diary |
        url_commented_ons << diary_url(diary)
      end
 
