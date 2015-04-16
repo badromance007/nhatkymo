@@ -56,5 +56,7 @@
       h2 Hãy viết một nhật ký học tập
       p Chưa có nhật ký học tập nào được viết... Bạn hãy là người đầu tiên viết nhật ký nào!
       button= link_to "Tạo nhật ký mới", new_diary_path
+
+    = paginate @diaries 
       
 

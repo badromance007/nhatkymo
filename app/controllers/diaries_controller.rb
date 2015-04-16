@@ -4,7 +4,7 @@ class DiariesController < ApplicationController
   def index
     #@diaries = Diary.where(user_id: current_user)# for display only diaries belong to the user!!!
     # for display all the diaries "Diary.all.order("created_at DESC")"
-    @diaries = Diary.all.order("created_at DESC")
+    @diaries = Diary.all.order("created_at DESC").page(params[:page]).per(12)
   end
 
   def gopy

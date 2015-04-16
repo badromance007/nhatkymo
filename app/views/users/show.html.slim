@@ -43,6 +43,8 @@
         p Hình như bạn chưa viết nhật ký học tập nào cả... Hãy viết nhật ký học tập nào!
         button= link_to "Tạo nhật ký mới", new_diary_path
 
+      = paginate @user_diaries 
+
   .col-sm-4
     h1 Thông tin cá nhân
     table.table
