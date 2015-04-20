@@ -25,6 +25,8 @@ class DiariesController < ApplicationController
   def create
     @diary = current_user.diaries.build(diary_params)
 
+    @diary.update_attribute(:slug, Diary.dash_slug(@diary.title))
+
     if @diary.save
       redirect_to @diary 
     else
@@ -37,6 +39,7 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
+      @diary.update_attribute(:slug, Diary.dash_slug(@diary.title))
       redirect_to @diary
     else
       render 'edit'
@@ -61,7 +64,7 @@ class DiariesController < ApplicationController
   private
 
     def find_diary
-      @diary = Diary.find(params[:id])
+      @diary = Diary.find_by_slug(params[:id])
     end
 
     def diary_params
