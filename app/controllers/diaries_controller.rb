@@ -61,10 +61,10 @@ class DiariesController < ApplicationController
   private
 
     def find_diary
-      @diary = Diary.find(params[:id])
+      @diary = Diary.find_by_slug(params[:id])
     end
 
     def diary_params
-      params.require(:diary).permit(:title, :content)
+      params.require(:diary).permit(:title, :content, :slug)
     end
 end
