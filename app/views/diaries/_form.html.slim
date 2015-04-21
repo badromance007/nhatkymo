@@ -1,4 +1,21 @@
-= simple_form_for @diary do |f| 
-  = f.input :title, label: "Tiêu đề"
-  = f.input :content, label: "Nội dung"
-  = f.button :submit, :value => "Viết nhật ký mới", class: "button"
+= form_for(@diary) do |f| 
+  - if @diary.errors.any? 
+    div(id="error_explanation")
+      h2
+        = pluralize(@diary.errors.count, "error") 
+        = " "
+        | prohibited this link from being saved:
+
+      ul
+      - @diary.errors.full_messages.each do |message| 
+        li
+          = message
+
+  = f.label :title, "Tiêu đề"
+  = f.text_field :title
+  
+  = f.label :content, "Nội dung"
+  = f.text_area :content
+  = f.submit "Viết nhật ký mới", class: "button"
+  
+  

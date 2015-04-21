@@ -3,6 +3,21 @@ class Diary < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
 
+  before_validation(on: :create) do
+    self.title = self.title.strip
+  end
+  before_validation(on: :update) do
+    self.title = self.title.gsub(/\s+/, " ").strip
+  end
+
+  validates :title, uniqueness: true, presence: true, length: { minimum: 5 }
+  
+  validates :content, presence: true, length: { minimum: 5 }
+
+  #validates :slug, uniqueness: true, presence: true
+  
+  #validates :user_id, presence: true  
+
   #validates_presence_of :slug
 
   #make dash urls
@@ -24,6 +39,6 @@ class Diary < ActiveRecord::Base
   end
 
   def to_param
-    slug
+    "#{slug}-#{id}"
   end
 end
