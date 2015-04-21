@@ -39,7 +39,7 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
-      @diary.update_attribute(:slug, Diary.dash_slug(@diary.title))
+      #@diary.update_attribute(:slug, Diary.dash_slug(@diary.title))
       redirect_to @diary
     else
       render 'edit'
